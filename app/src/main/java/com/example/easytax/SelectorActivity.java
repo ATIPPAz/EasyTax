@@ -28,11 +28,9 @@ public class SelectorActivity extends AppCompatActivity {
         Intent intent = new Intent(SelectorActivity.this,MainCalculateActivity.class);
         intent.putExtra("type","1");
         startActivity(intent);
-        finish();
     }
     public void payStepLadder(View view){
         Intent intent = new Intent(SelectorActivity.this, SelectorPaymentLadderActivity.class);
         startActivity(intent);
-        finish();
     }
 }
