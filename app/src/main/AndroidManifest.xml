@@ -12,6 +12,12 @@
         android:theme="@style/Theme.EasyTax"
         tools:targetApi="31">
         <activity
+            android:name=".SelectorPaymentLadderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainCalculateActivity"
+            android:exported="false" />
+        <activity
             android:name=".SelectorActivity"
             android:exported="false" />
         <activity

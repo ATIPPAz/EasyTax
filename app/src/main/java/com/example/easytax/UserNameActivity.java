@@ -1,5 +1,6 @@
 package com.example.easytax;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -17,6 +18,8 @@ public class UserNameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_name);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
     }
     public void goToSelecterPage(View view){
         EditText editTextUsername = findViewById(R.id.usernameTv);
@@ -30,7 +33,6 @@ public class UserNameActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         } else {
-
             Toast.makeText(getApplicationContext(), "Please Enter your username", Toast.LENGTH_SHORT).show();
         }
 
