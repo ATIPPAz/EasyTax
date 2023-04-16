@@ -12,9 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.easytax.fragments.Home;
-
-public class GetUserName extends AppCompatActivity {
+public class GetUserNameActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +30,7 @@ public class GetUserName extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("username", username);
                     editor.apply();
-                    Intent intent = new Intent(GetUserName.this, MainActivity.class);
+                    Intent intent = new Intent(GetUserNameActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 } else {

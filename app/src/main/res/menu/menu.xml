@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        />
+    <item
+        android:id="@+id/flat_tax"
+        android:title="Flat"
+        />
+    <item
+        android:id="@+id/progressive_tax"
+        android:title="Progressive"
+        />
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        />
 </menu>

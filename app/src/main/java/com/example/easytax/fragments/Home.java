@@ -3,12 +3,16 @@ package com.example.easytax.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.easytax.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,11 +60,43 @@ public class Home extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    private void replaceFragment(Fragment fragment){
+        if(fragment != null){
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.mainDisplay, fragment);
+            fragmentTransaction.commit();
+        }
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        Button btprogressive = view.findViewById(R.id.button3);
+        Button btflat = view.findViewById(R.id.button4);
+        btprogressive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProgressiveTax progressiveTax  =  new ProgressiveTax();
+                replaceFragment(progressiveTax);
+                replaceFragment(new Home());
+                BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.btMenu);
+                bottomNavigationView.setSelectedItemId(R.id.progressive_tax);
+            }
+        });
+        btflat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CalculateTax cal  =  new CalculateTax();
+                Bundle bundle = new Bundle();
+                bundle.putString("type", "1");
+                cal.setArguments(bundle);
+                replaceFragment(cal);
+                BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.btMenu);
+                bottomNavigationView.setSelectedItemId(R.id.flat_tax);
+            }
+        });
+        return view;
     }
 }

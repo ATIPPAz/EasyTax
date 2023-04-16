@@ -7,35 +7,60 @@
     android:background="#a0bff6"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_light"
-        android:foregroundTint="#144294"
-        android:text="@string/main_AppName"
-        android:textColor="#144294"
-        android:textSize="60sp"
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/btMenu"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_top"
+        app:itemIconTint="#144294"
+        app:itemTextColor="#144294"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:menu="@menu/menu" />
+
+    <FrameLayout
+        android:id="@+id/mainDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerTv" />
+
+    <TextView
+        android:id="@+id/headerTv"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:background="@drawable/rounded_bottom"
+        android:fontFamily="@font/montserrat_semibold"
+        android:gravity="center_vertical|start"
+        android:text="  EasyTax"
+        android:textColor="#144294"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="300dp"
-        android:layout_height="129dp"
-        android:fontFamily="@font/montserrat_light"
-        android:text="@string/main_title"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        android:id="@+id/usernameShow"
+        android:layout_width="174dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="0dp"
+        android:text="username"
+        android:gravity="center_vertical|end"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/headerTv"
+        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintStart_toStartOf="@+id/headerTv"
+        app:layout_constraintTop_toTopOf="@+id/headerTv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
