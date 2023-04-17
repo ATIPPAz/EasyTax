@@ -1,5 +1,7 @@
 package com.example.easytax.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -70,6 +72,10 @@ public class ProgressiveTax extends Fragment {
         FragmentTransaction transaction =  getActivity().getSupportFragmentManager().beginTransaction();
         CalculateTax calculateTaxFragment = new CalculateTax();
         Bundle bundle = new Bundle();
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("EasyTax", Context.MODE_PRIVATE);
+
+
+
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +84,6 @@ public class ProgressiveTax extends Fragment {
                 transaction.replace(R.id.mainDisplay, calculateTaxFragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
-
             }
         });
         TextView btn2 = view.findViewById(R.id.tvBtn2);
@@ -158,6 +163,37 @@ public class ProgressiveTax extends Fragment {
                 transaction.commit();
             }
         });
+        if(sharedPreferences.contains("salary")){
+            String salaryS = sharedPreferences.getString("salary", null).toString();
+            if(salaryS!= null && !salaryS.equals("")){
+                double salary = Double.valueOf(salaryS)*12;
+                if(salary > 1 &&  salary<=150000){
+                    btn1.setTextColor(getResources().getColor(R.color.blue));
+                }
+                else if(salary > 150001 &&  salary<=300000){
+                    btn2.setTextColor(getResources().getColor(R.color.blue));
+                }
+                else if(salary > 300001 &&  salary<=500000){
+                    btn3.setTextColor(getResources().getColor(R.color.blue));
+                }
+                else if(salary > 500001 &&  salary<=750000){
+                    btn4.setTextColor(getResources().getColor(R.color.blue));
+                }
+                else if(salary > 750001 &&  salary<=1000000){
+                    btn5.setTextColor(getResources().getColor(R.color.blue));
+                }
+                else if(salary > 1000001 &&  salary<=2000000){
+                    btn6.setTextColor(getResources().getColor(R.color.blue));
+                }
+                else if(salary > 2000001 &&  salary<=5000000){
+                    btn7.setTextColor(getResources().getColor(R.color.blue));
+                }
+                else if(salary > 5000001){
+                    btn8.setTextColor(getResources().getColor(R.color.blue));
+                }
+            }
+
+        }
 
         return view;
 
