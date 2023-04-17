@@ -7,66 +7,107 @@
     android:background="#a0bff6"
     tools:context=".fragments.CalculateTax">
 
-    <Button
-        android:id="@+id/calculateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-        app:layout_constraintVertical_bias="0.646" />
-
     <TextView
         android:id="@+id/tvDisplay"
-        android:layout_width="248dp"
-        android:layout_height="51dp"
+        android:layout_width="266dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="72dp"
+        android:gravity="center_vertical|center"
         android:text="TextView"
+
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.261" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="126dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        android:text="คำนวณ"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lighten" />
+
+    <TextView
+        android:id="@+id/tvDisplay3"
+        android:layout_width="266dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        android:text="รายจ่ายต่อปี"
+
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/revenue" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="265dp"
-        android:layout_height="76dp"
+        android:id="@+id/revenue"
+        android:layout_width="267dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/rounded_white"
         android:ems="10"
+        android:hint="0 ฿"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDisplay2" />
+
+    <TextView
+        android:id="@+id/tvDisplay4"
+        android:layout_width="266dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        android:text="ค่าลดหย่อน"
+
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expenses" />
+
+    <EditText
+        android:id="@+id/expenses"
+        android:layout_width="265dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/rounded_white"
+        android:ems="10"
+        android:hint="0 ฿"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDisplay3" />
+
+    <EditText
+        android:id="@+id/lighten"
+        android:layout_width="265dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/rounded_white"
+        android:ems="10"
+        android:hint="0 ฿"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDisplay4" />
+
+    <TextView
+        android:id="@+id/tvDisplay2"
+        android:layout_width="266dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        android:text="รายรับต่อปี"
+
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDisplay" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="265dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="56dp"
-        android:background="@drawable/rounded_white"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="265dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_white"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout >

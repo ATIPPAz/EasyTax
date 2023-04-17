@@ -1,12 +1,16 @@
 package com.example.easytax.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.easytax.R;
 
@@ -16,7 +20,8 @@ import com.example.easytax.R;
  * create an instance of this fragment.
  */
 public class ResultTax extends Fragment {
-
+double  tax ,lighten,revenue,expenses,total;
+String taxRate,type;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -61,6 +66,34 @@ public class ResultTax extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_result_tax, container, false);
+        View view = inflater.inflate(R.layout.fragment_result_tax, container, false);
+        TextView taxTv =view.findViewById(R.id.tax);
+        TextView taxRateTv = view.findViewById(R.id.taxRate);
+        TextView lightenTv =view.findViewById(R.id.lighten);
+        TextView revenueTv = view.findViewById(R.id.revenue);
+        TextView expensesTv =  view.findViewById(R.id.expenses);
+        TextView typeTv  =  view.findViewById(R.id.type);
+        TextView usernameTv =  view.findViewById(R.id.username);
+        TextView totalTv =  view.findViewById(R.id.total);
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            tax = Double.valueOf(bundle.getString("tax").toString());
+            taxRate =  bundle.getString("taxRate").toString();
+            lighten = Double.valueOf(bundle.getString("lighten").toString());
+            revenue = Double.valueOf(bundle.getString("revenue").toString());
+            expenses =  Double.valueOf(bundle.getString("expenses").toString());
+            type  =  bundle.getString("type").toString();
+            total =  Double.valueOf(bundle.getString("total").toString());
+        }
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("EasyTax", Context.MODE_PRIVATE);
+        usernameTv.setText(sharedPreferences.getString("username", null));
+         taxTv.setText(String.valueOf(tax) + " บาท");
+         taxRateTv.setText(String.valueOf(taxRate) );
+         lightenTv.setText(String.valueOf(lighten) + " บาท");
+         revenueTv.setText(String.valueOf(revenue)+ " บาท" ) ;
+         expensesTv.setText(String.valueOf(expenses) + " บาท");
+         typeTv.setText(String.valueOf(type));
+         totalTv.setText(String.valueOf(total) + " บาท");
+        return view;
     }
 }

@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/home"
-        android:title="Home"
+        android:title="หน้าหลัก"
         />
     <item
         android:id="@+id/flat_tax"
-        android:title="Flat"
+        android:title="แบบเหมา"
         />
     <item
         android:id="@+id/progressive_tax"
-        android:title="Progressive"
+        android:title="แบบขั้นบันได"
         />
     <item
         android:id="@+id/profile"
-        android:title="Profile"
+        android:title="โปรไฟล์"
         />
 </menu>

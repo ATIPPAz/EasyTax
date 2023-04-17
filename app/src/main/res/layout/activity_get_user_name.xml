@@ -6,29 +6,78 @@
     android:layout_height="match_parent"
     tools:context=".GetUserNameActivity">
 
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="153dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="108dp"
+        android:fontFamily="@font/bebas_neue"
+        android:gravity="center_vertical|center"
+        android:text="EasyTax"
+        android:textColor="@color/blue"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/nextBtn"
-        android:layout_width="107dp"
-        android:layout_height="59dp"
+        android:layout_width="134dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="88dp"
+        android:background="@drawable/rounded_blue"
+        android:gravity="center_vertical|center"
         android:onClick="goToSelecterPage"
         android:text="next"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.665" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameTv" />
 
     <EditText
         android:id="@+id/usernameTv"
-        android:layout_width="237dp"
-        android:layout_height="81dp"
+        android:layout_width="291dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="32dp"
+        android:autofillHints="true"
         android:ems="10"
+        android:gravity="center_vertical|center"
         android:hint="Enter Your Name"
         android:inputType="textPersonName"
-        android:autofillHints="true"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.577"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="204dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/bebas_neue"
+        android:gravity="center_vertical|center"
+        android:text="Please Enter Your Name"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="188dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="119dp"
+        android:fontFamily="@font/bebas_neue"
+        android:gravity="center_vertical|center"
+        android:text="Welcome To"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

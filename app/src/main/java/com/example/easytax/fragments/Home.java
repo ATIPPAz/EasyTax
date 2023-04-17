@@ -73,28 +73,14 @@ public class Home extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        Button btprogressive = view.findViewById(R.id.button3);
-        Button btflat = view.findViewById(R.id.button4);
-        btprogressive.setOnClickListener(new View.OnClickListener() {
+        Button startedBtn = view.findViewById(R.id.startedBtn);
+        startedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ProgressiveTax progressiveTax  =  new ProgressiveTax();
-                replaceFragment(progressiveTax);
-                replaceFragment(new Home());
+                Started started  =  new Started();
+                replaceFragment(started);
                 BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.btMenu);
-                bottomNavigationView.setSelectedItemId(R.id.progressive_tax);
-            }
-        });
-        btflat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CalculateTax cal  =  new CalculateTax();
-                Bundle bundle = new Bundle();
-                bundle.putString("type", "1");
-                cal.setArguments(bundle);
-                replaceFragment(cal);
-                BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.btMenu);
-                bottomNavigationView.setSelectedItemId(R.id.flat_tax);
+//                bottomNavigationView.setSelectedItemId(R.id.home);
             }
         });
         return view;
