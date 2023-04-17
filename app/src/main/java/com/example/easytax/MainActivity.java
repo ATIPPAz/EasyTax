@@ -56,6 +56,8 @@ String name = null;
                 switch (menuItem.getItemId()) {
                     case R.id.home:
                         replaceFragment(new Home());
+                        name = sharedPreferences.getString("username", null);
+                        userShow.setText(name);
                         break;
                     case R.id.flat_tax:
                         CalculateTax cal  =  new CalculateTax();

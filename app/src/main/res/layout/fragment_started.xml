@@ -21,19 +21,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="258dp"
+        android:layout_height="81dp"
+        android:fontFamily="@font/bebas_neue"
+        android:gravity="center_vertical|center"
+        android:text="เเนะนำ:\nหากมีรายได้นอกจากเงินเดือนรวมกันไม่เกิน 1 ล้านบาทให้คิดภาษีแบบเหมา"
+        android:textColor="#db5135"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
     <Button
         android:id="@+id/button3"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="32dp"
         android:onClick="payStepLadder"
-        android:text="แบบขั้นบันได"
 
+        android:text="แบบขั้นบันได"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <Button
         android:id="@+id/button4"

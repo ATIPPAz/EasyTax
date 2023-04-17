@@ -10,9 +10,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.easytax.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -75,6 +77,15 @@ String taxRate,type;
         TextView typeTv  =  view.findViewById(R.id.type);
         TextView usernameTv =  view.findViewById(R.id.username);
         TextView totalTv =  view.findViewById(R.id.total);
+        Button homeBtn =  view.findViewById(R.id.homebtn);
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.btMenu);
+                bottomNavigationView.setSelectedItemId(R.id.home);
+            }
+        });
         Bundle bundle = getArguments();
         if (bundle != null) {
             tax = Double.valueOf(bundle.getString("tax").toString());

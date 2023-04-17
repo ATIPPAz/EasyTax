@@ -24,7 +24,7 @@ public class GetUserNameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText editTextUsername = findViewById(R.id.usernameTv);
                 String username = editTextUsername.getText().toString();
-                FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();
+
                 if (username != null && !username.isEmpty() && !username.equals("")) {
                     SharedPreferences sharedPreferences = getSharedPreferences("EasyTax", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -34,7 +34,8 @@ public class GetUserNameActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Please Enter your username", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "กรุณากรอกชื่อ", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });

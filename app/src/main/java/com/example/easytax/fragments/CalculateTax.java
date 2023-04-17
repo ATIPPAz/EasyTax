@@ -1,6 +1,8 @@
 package com.example.easytax.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -29,6 +31,7 @@ public class CalculateTax extends Fragment {
     double lowerBound = 0;
     double upperBound =0;
     EditText lightenEt = null;
+    TextView revTv = null;
     EditText revenueEt = null;
     EditText expensesEt = null;
     String typeText = "";
@@ -77,23 +80,20 @@ public class CalculateTax extends Fragment {
         }
     }
     private double calculateTax(){
-        Log.d("tax",String.valueOf(totalMoney) );
-        Log.d("tax",String.valueOf(limitMoney) );
-        Log.d("tax",String.valueOf(taxRate));
-        Log.d("tax",String.valueOf(additional) );
-
        return ((totalMoney-limitMoney)*taxRate)+additional;
     }
     private double calculateTaxFlatPayment(){
-        return  ((totalMoney-limitMoney)*taxRate)+additional;
+        return  (totalMoney*taxRate);
     }
     public void setup(){
 //        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.btMenu);
-
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("EasyTax", Context.MODE_PRIVATE);
         if(type.equals("1")){
             typeText = "แบบเหมาจ่าย";
+            revTv.setText("ไม่รวมกับเงินเดือน");
             lowerBound = 1;
             upperBound =-1;
+            taxRate = 5.0/100.0;
             taxRateS = "5%";
 //            bottomNavigationView.setSelectedItemId(R.id.flat_tax);
             return;
@@ -165,12 +165,19 @@ public class CalculateTax extends Fragment {
             typeText = "มากกว่า 5,000,000 บาท\nขั้นบันได 35%";
             taxRateS = "35%";
             taxRate = 35.0/100.0;
-            lowerBound = 50000001;
+            lowerBound = 5000001;
             upperBound =-1;
             additional = 1265000;
             limitMoney=5000000;
         }
-//        bottomNavigationView.setSelectedItemId(R.id.progressive_tax);
+        if(!type.equals("1")){
+            if(sharedPreferences.contains("salary")){
+                double salary = Double.valueOf(sharedPreferences.getString("salary", null))*12;
+                if(salary>lowerBound && salary<=upperBound || upperBound==-1){
+                    revenueEt.setText( String.valueOf( salary));
+                }
+            }
+        }
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -186,6 +193,8 @@ public class CalculateTax extends Fragment {
         expensesEt =view.findViewById(R.id.expenses);
         Button btn = view.findViewById(R.id.calculateButton);
         TextView tvDisplay = view.findViewById(R.id.tvDisplay);
+        revTv = view.findViewById(R.id.revTv);
+
         setup();
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

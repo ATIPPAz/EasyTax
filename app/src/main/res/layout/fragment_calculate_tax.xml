@@ -56,7 +56,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDisplay2" />
+        app:layout_constraintTop_toBottomOf="@+id/revTv2" />
 
     <TextView
         android:id="@+id/tvDisplay4"
@@ -98,15 +98,27 @@
         app:layout_constraintTop_toBottomOf="@+id/tvDisplay4" />
 
     <TextView
-        android:id="@+id/tvDisplay2"
-        android:layout_width="266dp"
+        android:id="@+id/revTv2"
+        android:layout_width="265dp"
         android:layout_height="32dp"
-        android:layout_marginTop="16dp"
-        android:text="รายรับต่อปี"
+        android:layout_marginTop="8dp"
 
+        android:text="รายรับต่อปี"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDisplay" />
+
+    <TextView
+        android:id="@+id/revTv"
+        android:layout_width="150dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#db5135"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.724"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDisplay" />
 
